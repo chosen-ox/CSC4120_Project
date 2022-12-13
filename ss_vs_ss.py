@@ -26,7 +26,7 @@ def find_max_blue_diff(bfs_queue)-> int:
         for i in range(last_level_len):
             for child in node_array[bfs_queue[i]].children:
                 max_diff = node_array[child].red_sub_nodes - node_array[child].blue_sub_nodes
-                print(max_diff)
+                # print(max_diff)
                 if not node_array[child].is_vaccinated and node_array[child].blue_sub_nodes - node_array[child].red_sub_nodes >= max_blue_diff:
                     max_blue_diff = node_array[child].blue_sub_nodes - node_array[child].red_sub_nodes
                     select = child
@@ -37,10 +37,8 @@ def find_max_blue_diff(bfs_queue)-> int:
 def update_info(select):
     if select == - 1:
         return
-    try:
-        red = node_array[select].red_sub_nodes
-    except:
-        print("???", select)
+
+    red = node_array[select].red_sub_nodes
     blue = node_array[select].blue_sub_nodes
     node_array[select].is_vaccinated = 1
     if node_array[select].is_red:
@@ -87,10 +85,10 @@ class Node:
             node_array[self.parent].blue_sub_nodes += self.blue_sub_nodes
             if self.is_red:
                 node_array[self.parent].red_sub_nodes += 1
-                print(self.idx, "red")
+                # print(self.idx, "red")
             else:
                 node_array[self.parent].blue_sub_nodes += 1
-                print(self.idx, "blue")
+                # print(self.idx, "blue")
 
 
 
@@ -171,3 +169,4 @@ while bfs_queue:
 print("blue save", saved_blue_num)
 print("red save", saved_red_num)
 print("save", saved_num)
+print(f'{saved_blue_num}/{saved_red_num}/{saved_num}')

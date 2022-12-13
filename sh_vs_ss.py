@@ -36,10 +36,7 @@ def find_max_blue_diff(bfs_queue)-> int:
 def update_info(select):
     if select == - 1:
         return
-    try:
-        red = node_array[select].red_sub_nodes
-    except:
-        print("???", select)
+    red = node_array[select].red_sub_nodes
     blue = node_array[select].blue_sub_nodes
     node_array[select].is_vaccinated = 1
     if node_array[select].is_red:
@@ -86,10 +83,10 @@ class Node:
             node_array[self.parent].blue_sub_nodes += self.blue_sub_nodes
             if self.is_red:
                 node_array[self.parent].red_sub_nodes += 1
-                print(self.idx, "red")
+                # print(self.idx, "red")
             else:
                 node_array[self.parent].blue_sub_nodes += 1
-                print(self.idx, "blue")
+                # print(self.idx, "blue")
 
 
 
@@ -123,7 +120,7 @@ node_array[1].random_color()
 print("blue", blue_num)
 print("red", red_num)
 start_strategy = 0 # ss = 0, sh = 1
-ss_color = 0 # red = 1, blue = 0
+ss_color = 1 # red = 1, blue = 0
 bfs_queue = [1]
 round = 0
 while bfs_queue:
@@ -190,3 +187,4 @@ while bfs_queue:
 print("blue save", saved_blue_num)
 print("red save", saved_red_num)
 print("save", saved_num)
+print(f'{saved_blue_num}/{saved_red_num}/{saved_num}')

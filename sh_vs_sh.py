@@ -86,7 +86,7 @@ while bfs_queue:
             bfs_queue.append(child)
 
     if select != -1:
-        # print("select", bfs_queue[select])
+        print("select", bfs_queue[select])
         saved_num += node_array[bfs_queue[select]].red_sub_nodes + node_array[bfs_queue[select]].blue_sub_nodes + 1
         saved_red_num += node_array[bfs_queue[select]].red_sub_nodes
         saved_blue_num += node_array[bfs_queue[select]].blue_sub_nodes
@@ -105,3 +105,4 @@ while bfs_queue:
 print("blue save", saved_blue_num)
 print("red save", saved_red_num)
 print("save", saved_num)
+print(f'{saved_blue_num}/{saved_red_num}/{saved_num}')
